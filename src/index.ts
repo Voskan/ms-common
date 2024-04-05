@@ -10,5 +10,4 @@ const color: Color = {
   blue: 0,
 };
 
-console.log(color, "--");
 export default color;
