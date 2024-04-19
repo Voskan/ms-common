@@ -2,12 +2,8 @@ import { NextFunction, Response, Request } from "express";
 import jwt from "jsonwebtoken";
 import { NotAuthorizedError } from "../errors/NotAuthorizedError";
 
-interface RequestWithUser extends Request {
-  currentUser?: string | jwt.JwtPayload;
-}
-
 export const requireAuth = (
-  req: RequestWithUser,
+  req: Request,
   res: Response,
   next: NextFunction
 ) => {
@@ -23,7 +19,7 @@ export const requireAuth = (
   try {
     const payload = jwt.verify(token, process.env.JWT_KEY!);
 
-    req.currentUser = payload;
+    req.currentUser = payload as UserPayload;
   } catch (err) {
     throw err;
   }
