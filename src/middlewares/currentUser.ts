@@ -1,19 +1,6 @@
 import { NextFunction, Response, Request } from "express";
 import jwt from "jsonwebtoken";
 
-interface UserPayload {
-  id: string;
-  email: string;
-}
-
-declare global {
-  namespace Express {
-    interface Request {
-      currentUser?: UserPayload;
-    }
-  }
-}
-
 export const currentUser = (
   req: Request,
   res: Response,

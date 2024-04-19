@@ -1,3 +1,11 @@
+declare global {
+  namespace Express {
+    interface Request {
+      currentUser?: UserPayload;
+    }
+  }
+}
+
 export * from "./errors/BadRequestError";
 export * from "./errors/CustomError";
 export * from "./errors/DatabaseConnectionErrors";
