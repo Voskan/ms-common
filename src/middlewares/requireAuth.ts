@@ -1,6 +1,7 @@
 import { NextFunction, Response, Request } from "express";
 import jwt from "jsonwebtoken";
 import { NotAuthorizedError } from "../errors/NotAuthorizedError";
+import { UserPayload } from "../types";
 
 export const requireAuth = (
   req: Request,
