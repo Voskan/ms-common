@@ -1,6 +1,6 @@
 import { NextFunction, Response, Request } from "express";
 import jwt from "jsonwebtoken";
-import { UserPayload } from "../types";
+import { UserPayload } from "../types/types";
 
 export const currentUser = (
   req: Request,
