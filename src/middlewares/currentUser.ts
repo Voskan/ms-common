@@ -1,6 +1,7 @@
 import { NextFunction, Response, Request } from "express";
 import jwt from "jsonwebtoken";
 import { UserPayload } from "../types/types";
+import { NotAuthorizedError } from "../errors/NotAuthorizedError";
 
 export const currentUser = (
   req: Request,
@@ -20,7 +21,7 @@ export const currentUser = (
 
     req.currentUser = payload as UserPayload;
   } catch (err) {
-    console.log(err);
+    throw new NotAuthorizedError();
   }
 
   next();
